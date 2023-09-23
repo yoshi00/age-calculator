@@ -1,0 +1,9 @@
+.button {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    width: fit-content;
+    background-color: white;
+    border: none;
+
+}
