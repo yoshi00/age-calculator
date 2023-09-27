@@ -5,5 +5,18 @@
     align-items: center;
     padding: 12px;
     border-radius: 6px;
-    margin: 32px;
+    margin: 14px;
+    background-color: rgba(216, 216, 216, 0.658);
+}
+
+.purple {
+    border-color: 1px solid hsl(271, 100%, 62%);   
+}
+
+.grey {
+    border-color: 1px solid hsl(206, 6%, 79%);
+}
+
+.red {
+    border-color: 1px solid hsl(0, 78%, 62%);
 }

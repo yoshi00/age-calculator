@@ -6,6 +6,6 @@ interface AddIconProps extends React.HTMLAttributes<HTMLImageElement> {}
 
 export const AddIcon: React.FC<AddIconProps> = ({ ...props }) => {
     return (
-        <img className={styles.imgIcon} src='/assets/icon.png' {...props}/>
+        <img className={styles.imgIcon} src='/assets/image/icon.png' {...props}/>
     )
 }

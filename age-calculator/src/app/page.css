@@ -13,7 +13,7 @@
     border: 1px solid rgba(79, 26, 204, 0.86);
     border-radius: 16px;
     border-end-end-radius: 126px;
-    max-width: 800px;
+    max-width: 938px;
 }
 
 .inputStyles {
@@ -23,12 +23,16 @@
     padding-top: 10px;
 }
 
+.inputDay {
+    display: block;
+}
+
 .outputAge {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row-reverse;
+    flex-direction: column;
     padding: 28px 54px;
-    gap: 68px;
+    gap: 4px;
 }
 
 .addButton {

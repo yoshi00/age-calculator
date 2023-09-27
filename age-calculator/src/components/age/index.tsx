@@ -3,14 +3,13 @@
 import React from "react"
 import styles from './styles.module.css'
 
-interface OutputAgeProps {
-    children: React.ReactNode;
-    name: string;
+interface OutputAgeProps extends React.HtmlHTMLAttributes<HTMLElement> {
+    name: string
 }
 
-export const Age: React.FC<OutputAgeProps> = ({ name, children }) => {
+export const Age: React.FC<OutputAgeProps> = ({ name, children , ...props }) => {
     
     return (
-        <h1 id={name} className={styles.h1}>{children}</h1>
+        <h1 id={name} className={styles.h1} { ...props }> {children} </h1>
     )
 }

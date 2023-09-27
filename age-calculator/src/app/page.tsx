@@ -1,31 +1,42 @@
 "use client"
 import React, { useState } from 'react'
 import './page.css'
-import { Input } from '../components/input'
-import { Age } from '../components/age'
-import { Button } from '../components/button'
+import { Input } from '@/components/input'
+import { Age } from '@/components/age'
+import { Button } from '@/components/button'
 import { AddIcon } from '@/components/addicon'
+import { Text } from '@/components/text'
 
 
 export default function Home() {
 
-  const [age, setAge] = useState("");
+  const [age, setAge] = useState({ years: 0, months: 0, days: 0 });
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
+  const [disable, setDisable] = useState(false);
 
-const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+  if(disable){
+    setDisable(true); 
+  }
+
+const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent >) => {
   e.preventDefault();
   const currentDate = new Date();
   const pastDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
   const diff = Math.floor(currentDate.getTime() - pastDate.getTime());
   const numberOfday = 1000 * 60 * 60 * 24;
-  const days = Math.round(diff / numberOfday);
-  const months = Math.round(days / 31);
-  const years = Math.round(months / 12);
+  const numberOfdays = Math.round(diff / numberOfday);
+  const numberOfmonths = Math.round(numberOfdays / 31);
+  const numberOfyears = Math.round(numberOfmonths / 12);
 
-  const ageString = `${years} years ${months} months ${days} days`;
-  setAge(ageString);
+  const ageCalculator = {
+    years: numberOfyears,
+    months: numberOfmonths,
+    days: numberOfdays
+  }
+
+  setAge(ageCalculator);
 };
 
 const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,17 +52,30 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   return (
     <div className='main'>
       <div className='container'>
-        <div className='inputStyles'> 
-          <Input name={"dayInput"} onChange={handleChange}/>
-          <Input name={"monthInput"} onChange={handleChange}/>
-          <Input name={"yearInput"} onChange={handleChange}/>
+        <div className='inputStyles'>
+            <div>
+              <Text name={"day"} >Day</Text> 
+              <Input disable={disable} name={"dayInput"} onChange={handleChange}/>
+            </div>
+            <div>
+              <Text name={"month"} >Month</Text>
+              <Input disable={disable} name={"monthInput"} onChange={handleChange}/>
+            </div>
+            <div>
+              <Text name={"year"} >Year</Text>
+              <Input disable={disable} name={"yearInput"} onChange={handleChange}/>
+            </div>
         </div>
-      <div className="outputAge">
+        <div className="outputAge">
+        <div className='addButton' >
           <Button onClick={handleClick}>
             <AddIcon/>
           </Button>
-        <Age name={"age"}>{age}</Age>
-      </div>
+        </div>
+          <Age name={"age"}> {age.years} years </Age>
+          <Age name={"age"}> {age.months} months </Age>
+          <Age name={"age"}> {age.days} days </Age>
+        </div>
       </div>
     </div>
   )
