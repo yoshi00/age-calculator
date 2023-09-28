@@ -4,6 +4,7 @@
     --white: hsl(0, 0%, 100%);
     --offwhite: hsl(0, 0%, 98%);
     --red: hsl(0, 78%, 62%);
+    --black: hsl(0, 0%, 0%);
     --poppins: 'Poppins', sans-serif;
     
 }

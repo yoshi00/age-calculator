@@ -3,15 +3,13 @@
 import React, { InputHTMLAttributes } from 'react';
 import styles from './styles.module.css'
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    disable?: boolean
-}
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-export const Input: React.FC<InputProps> = ({ disable, ...props }) => {
+export const Input: React.FC<InputProps> = ({ ...props }) => {
 
     
 
     return(
-        <input style={ disable ? {border: '1px solid grey' } : {border: '1px solid purple'} } className={styles.input}  {...props}/>    
+        <input className={styles.input}  {...props}/>    
     )
 }
