@@ -4,19 +4,8 @@
     justify-content: space-around;
     align-items: center;
     padding: 12px;
+    border: 1px solid rgba(165, 165, 165, 0.86);
     border-radius: 6px;
     margin: 14px;
-    background-color: rgba(216, 216, 216, 0.658);
-}
-
-.purple {
-    border-color: 1px solid hsl(271, 100%, 62%);   
-}
-
-.grey {
-    border-color: 1px solid hsl(206, 6%, 79%);
-}
-
-.red {
-    border-color: 1px solid hsl(0, 78%, 62%);
+    background-color: hsl(0, 0%, 100%);;
 }

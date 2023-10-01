@@ -3,13 +3,17 @@
 import React from "react"
 import styles from './styles.module.css'
 
-interface OutputAgeProps extends React.HtmlHTMLAttributes<HTMLElement> {
-    name: string
+interface OutputAgeProps {
+    number: number
+    data: string
 }
 
-export const Age: React.FC<OutputAgeProps> = ({ name, children , ...props }) => {
+export const Age: React.FC<OutputAgeProps> = ({ number, data }) => {
     
     return (
-        <h1 id={name} className={styles.h1} { ...props }> {children} </h1>
+        <div  className={styles.ageMain}>
+            <h1 className={styles.h1}  >{number}</h1>
+            <h2 className={styles.data} >{data}</h2>
+        </div>
     )
 }
