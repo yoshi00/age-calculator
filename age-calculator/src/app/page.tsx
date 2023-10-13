@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './page.css'
 import { Input } from '@/components/input'
 import { Age } from '@/components/age'
@@ -8,16 +8,19 @@ import { AddIcon } from '@/components/addicon'
 import { Text } from '@/components/text'
 
 
+
 export default function Home() {
 
-  const [age, setAge] = useState({ years: 0, months: 0, days: 0 });
-  const [day, setDay] = useState(0);
-  const [month, setMonth] = useState(0);
-  const [year, setYear] = useState(0);
-  
-const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent >) => {
+const [age, setAge] = useState({year: 0, month: 0, day: 0});
+const [inputValue, setInputValue] = useState({year: 0, month: 0, day: 0});
+const [inputEnabled, setInputEnabled] = useState(false);
+
+const hasValue = inputValue.day > 0 && inputValue.month > 0 && inputValue.year > 0;
+
+const handleClick = () => { 
+  if(hasValue){
   const currentDate = new Date();
-  const pastDate = new Date(year, month - 1, day);
+  const pastDate = new Date(inputValue.year, inputValue.month - 1, inputValue.day);
   const diff = Math.floor(currentDate.getTime() - pastDate.getTime());
   const numberOfday = 1000 * 60 * 60 * 24;
   const numberOfdays = Math.round(diff / numberOfday);
@@ -25,25 +28,28 @@ const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent >) => {
   const numberOfyears = Math.round(numberOfmonths / 12);
 
   const ageCalculator = {
-    years: numberOfyears,
-    months: numberOfmonths,
-    days: numberOfdays
+    day: numberOfdays,
+    month: numberOfmonths,
+    year: numberOfyears
   }
-
-  setAge(ageCalculator);
+  
+    setAge(ageCalculator);
+    setInputValue({year: 0, month: 0, day: 0});
+    setInputEnabled(false);
+    console.log(ageCalculator);
+  }
 };
 
-
 const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  const value = event.target.type === "number" && !isNaN(event.target.valueAsNumber) ? event.target.valueAsNumber : Number(event.target.value);
+  const value = Number(event.target.value);
   const { name } = event.target;
-  if (name === "dayInput") {
-    setDay(value);
-  } else if (name === "monthInput") {
-    setMonth(value);
-  } else if (name === "yearInput") {
-    setYear(value);
+
+  if(isNaN(value) || value < 0) {
+    setInputEnabled(true);
+    return;
   }
+
+  setInputValue({ ...inputValue, [name]: value });
 };
 
   return (
@@ -51,27 +57,58 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       <div className='container'>
         <div className='inputStyles'>
             <div>
-              <Text name={"day"} >Day</Text> 
-              <Input name={"dayInput"} onChange={handleChange}/>
+              <Text name={"day"}>Day</Text> 
+              <Input 
+              style={inputEnabled ? {border: "1px solid red"} : {border: "1px solid grey"}} 
+              name={"day"} 
+              placeholder='DD'
+              onChange={handleChange} 
+              />
+              <Text 
+              style={inputEnabled ? {color: "red"} : {display: "none"}} 
+              > 
+              Ivalid input! 
+              </Text>
             </div>
             <div>
-              <Text name={"month"} >Month</Text>
-              <Input name={"monthInput"} onChange={handleChange}/>
+              <Text name={"month"}>Month</Text>
+              <Input 
+              style={inputEnabled ? {border: "1px solid red"} : {border: "1px solid grey"}} 
+              name={"month"} 
+              placeholder='MM' 
+              onChange={handleChange}/>
+              <Text 
+              style={inputEnabled ? {color: "red"} : {display: "none"}} 
+              > 
+              Ivalid input! 
+              </Text>
             </div>
             <div>
-              <Text name={"year"} >Year</Text>
-              <Input name={"yearInput"} onChange={handleChange}/>
+              <Text name={"year"}>Year</Text>
+              <Input 
+              style={inputEnabled ? {border: "1px solid red"} : {border: "1px solid grey"}} 
+              name={"year"} 
+              placeholder='YYYY'
+              onChange={handleChange}
+              />
+              <Text 
+              style={inputEnabled ? {color: "red"} : {display: "none"}} 
+              > 
+              Ivalid input! 
+              </Text>
             </div>
         </div>
         <div className="outputAge">
         <div className='addButton' >
+        <div className='line'>
           <Button onClick={handleClick}>
             <AddIcon/>
           </Button>
+          </div>
         </div>
-          <Age number={age.years} data={"Years"}/>
-          <Age number={age.months} data={"Months"}/>
-          <Age number={age.days} data={"Days"}/>
+            <Age number={age.year} data={"years"}/>
+            <Age number={age.month} data={"months"}/>
+            <Age number={age.day} data={"days"}/>
         </div>
       </div>
     </div>

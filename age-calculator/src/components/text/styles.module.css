@@ -1,5 +1,9 @@
+
 .text {
     font-size: 14px;
     color: hsl(206, 6%, 79%);
     padding-left: 14px;
+    font-family: var(--Poppins);
+    font-weight: 700;
+    font-style: normal;
 }
