@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import styles from './styles.module.css'
+import './styles.css'
 
 interface OutputAgeProps {
     number: number
@@ -11,9 +11,9 @@ interface OutputAgeProps {
 export const Age: React.FC<OutputAgeProps> = ({ number, data }) => {
     
     return (
-        <div  className={styles.ageMain}>
-            <h1 className={styles.h1}  >{number}</h1>
-            <h2 className={styles.data} >{data}</h2>
+        <div  className="ageMain">
+            <h1 className="h1"  >{number}</h1>
+            <h2 className="data" >{data}</h2>
         </div>
     )
 }

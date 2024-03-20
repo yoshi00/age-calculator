@@ -1,13 +1,11 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './page.css'
 import { Input } from '@/components/input'
 import { Age } from '@/components/age'
 import { Button } from '@/components/button'
 import { AddIcon } from '@/components/addicon'
 import { Text } from '@/components/text'
-
-
 
 export default function Home() {
 

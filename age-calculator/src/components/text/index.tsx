@@ -1,5 +1,5 @@
 
-import styles from './styles.module.css'
+import './styles.css'
 
 interface TextProps extends React.SVGTextElementAttributes<SVGTextElement>{
     children: React.ReactNode;
@@ -7,6 +7,6 @@ interface TextProps extends React.SVGTextElementAttributes<SVGTextElement>{
 }
 export const Text: React.FC<TextProps> = ({ style, children, ...props }) => {
     return(
-        <text className={styles.text} style={style} {...props}>{children}</text>
+        <text className="text" style={style} {...props}>{children}</text>
     )
 }
