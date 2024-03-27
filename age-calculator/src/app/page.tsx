@@ -6,6 +6,7 @@ import { Age } from '@/components/age'
 import { Button } from '@/components/button'
 import { AddIcon } from '@/components/addicon'
 import { Text } from '@/components/text'
+import { differenceInYears, differenceInMonths, differenceInDays } from 'date-fns'
 
 export default function Home() {
 
@@ -19,22 +20,16 @@ const handleClick = () => {
   if(hasValue){
   const currentDate = new Date();
   const pastDate = new Date(inputValue.year, inputValue.month - 1, inputValue.day);
-  const diff = Math.floor(currentDate.getTime() - pastDate.getTime());
-  const numberOfday = 1000 * 60 * 60 * 24;
-  const numberOfdays = Math.round(diff / numberOfday);
-  const numberOfmonths = Math.round(numberOfdays / 31);
-  const numberOfyears = Math.round(numberOfmonths / 12);
-
+  
   const ageCalculator = {
-    day: numberOfdays,
-    month: numberOfmonths,
-    year: numberOfyears
+    day: differenceInDays(currentDate, pastDate),
+    month: differenceInMonths(currentDate, pastDate),
+    year: differenceInYears(currentDate, pastDate)
   }
   
     setAge(ageCalculator);
     setInputValue({year: 0, month: 0, day: 0});
     setInputEnabled(false);
-    console.log(ageCalculator);
   }
 };
 
