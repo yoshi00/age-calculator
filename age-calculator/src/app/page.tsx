@@ -47,7 +47,7 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     return;
   }
 
-  setInputValue({ ...inputValue, [name]: value });
+  setInputValue(prevInputValue => ({ ...prevInputValue, [name]: value }));
 };
 
   return (
