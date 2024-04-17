@@ -1,72 +1,104 @@
 .main {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1440px;
+  min-height: 700px;
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    border: none;
-    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(22.5px);
-    border-radius: 16px;
-    border-end-end-radius: 126px;
-    max-width: 938px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #84dcc6;
+  padding: 2rem 2rem;
+  border-radius: 2rem;
+  border-end-end-radius: 10rem;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+  margin: 0 10rem;
 }
 
-.inputStyles {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    padding-top: 10px;
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.inputDay {
-    display: block;
+.input-container div {
+  display: flex;
+  flex-direction: column;
 }
 
-.outputAge {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding: 28px 54px;
-    gap: 4px;
+.add-button {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2rem 2rem;
 }
 
-.addButton {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    margin-right: 28px;
-    margin-top: 10px;
+/* .text-age {
+  color: #222222;
+  font-size: 42px;
+  padding-left: 14px;
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-style: italic;
+} */
+
+.display-age {
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.imgIcon {
-    width: 50px;
-    height: 50px;
+.img-icon {
+  width: 50px;
+  height: 50px;
 }
 
-.ads {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    padding-top: 10px;
-    padding-left: 14px;
+.error {
+  border: 2px solid hsl(0, 100%, 50%);
 }
 
-.line {
-    display: flex;
-    flex-direction: row-reverse;
-    width: 100%;
-    height: 1px;
-    background-color: rgb(0, 0, 0);
-    align-items: center;
+@media (max-width: 425px), (max-width: 430px), (max-width: 414px), (max-width: 390px) {
+  .add-button {
+    justify-content: center;
+    margin: 2rem 2rem;
   }
-
-  .error {
-    border: 2px solid hsl(0, 100%, 50%);
+  .display-age {
+    margin: 0 auto;
+    padding: 0;
   }
+  .container {
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .add-button {
+    justify-content: center;
+    margin: 2;
+  }
+  .container {
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .add-button {
+    justify-content: flex-start;
+    margin: 2rem 2rem;
+  }
+  .container {
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 280px) {
+  .add-button {
+    justify-content: flex-start;
+    margin: 2rem 2rem;
+  }
+  .container {
+    margin: 0 0.1rem;
+    padding: 2rem 1rem;
+  }
+}

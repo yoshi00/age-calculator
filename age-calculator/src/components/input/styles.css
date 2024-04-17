@@ -1,11 +1,9 @@
-.input {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    padding: 12px;
-    border: 1px solid rgba(165, 165, 165, 0.86);
-    border-radius: 6px;
-    margin: 14px;
-    background-color: hsl(0, 0%, 100%);;
+.input-age {
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  width: 6rem;
 }

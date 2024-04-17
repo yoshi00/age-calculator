@@ -1,0 +1,10 @@
+.card {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.card .age-styles {
+  padding-right: 1rem;
+  color: #4b4e6d;
+}

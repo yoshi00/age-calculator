@@ -1,8 +1,6 @@
 .button {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    background-color: white;
-    border: none;
-
+  background-color: #222222;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
 }
