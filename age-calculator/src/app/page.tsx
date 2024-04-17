@@ -109,17 +109,17 @@ export default function Home() {
         </div>
         <div className="display-age">
           <Card
-            style={{ color: '222222', fontFamily: 'Poppins', fontWeight: 800, fontSize: 40, fontStyle: 'italic' }}
+            style={{ color: '222222', fontFamily: 'Poppins', fontWeight: 800, fontSize: 38, fontStyle: 'italic' }}
             age={age.year}
             date="years"
           />
           <Card
-            style={{ color: '222222', fontFamily: 'Poppins', fontWeight: 800, fontSize: 40, fontStyle: 'italic' }}
+            style={{ color: '222222', fontFamily: 'Poppins', fontWeight: 800, fontSize: 38, fontStyle: 'italic' }}
             age={age.month}
             date="months"
           />
           <Card
-            style={{ color: '222222', fontFamily: 'Poppins', fontWeight: 800, fontSize: 40, fontStyle: 'italic' }}
+            style={{ color: '222222', fontFamily: 'Poppins', fontWeight: 800, fontSize: 38, fontStyle: 'italic' }}
             age={age.day}
             date="days"
           />
