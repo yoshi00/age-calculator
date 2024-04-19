@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { FC } from 'react'
 import './styles.css'
-interface CardProps {
+type CardProps = {
   age: number | null
   date: string
   style?: React.CSSProperties
 }
-export const Card: React.FC<CardProps> = ({ age, date, style, ...props }) => {
+export const Card: FC<CardProps> = ({ age, date, style, ...props }) => {
+  const formattedAge = age !== 0 ? `${age}` : '--'
+
   return (
     <div className="card" style={style} {...props}>
-      <span className="age-styles">{age === null ? '--' : age}</span>
+      <span className="age-styles">{formattedAge}</span>
       <span>{date}</span>
     </div>
   )

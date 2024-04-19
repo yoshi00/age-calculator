@@ -88,7 +88,8 @@
     margin: 2rem 2rem;
   }
   .container {
-    margin: 0 1rem;
+    margin: 0 0.1rem;
+    padding: 2rem 0.1rem;
   }
 }
 

@@ -2,8 +2,6 @@
 
 import './styles.css'
 
-interface AddIconProps extends React.HTMLAttributes<HTMLImageElement> {}
-
-export const AddIcon: React.FC<AddIconProps> = ({ ...props }) => {
+export const AddIcon = ({ ...props }) => {
   return <img className="imgIcon" src="assets/image/icon-arrow.svg" alt="arrow button" {...props} />
 }
