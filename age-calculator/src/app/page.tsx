@@ -2,19 +2,21 @@
 import { useState, ChangeEvent, KeyboardEvent } from 'react'
 import './page.css'
 import { Input, Button, AddIcon, Text, Card } from '@/components'
-import { differenceInYears, differenceInMonths, differenceInDays } from 'date-fns'
+import { differenceInYears, differenceInMonths, differenceInDays, isLeapYear } from 'date-fns'
 
 export default function Home() {
   const [age, setAge] = useState({ year: 0, month: 0, day: 0 })
   const [inputValue, setInputValue] = useState({ year: 0, month: 0, day: 0 })
   const [inputEnabled, setInputEnabled] = useState<boolean>(false)
-
-  const currentDate = new Date()
-
-  const isValidYear = inputValue.year <= currentDate.getFullYear()
-  const isValidMonth = inputValue.month > 1 && inputValue.month < 12
-  const isValidDay = inputValue.day > 1 && inputValue.day < 31
   const calculateAge = () => {
+    const currentDate = new Date()
+    const isValidYear = inputValue.year > 0 && inputValue.year <= currentDate.getFullYear()
+    const isValidMonth = inputValue.month >= 1 && inputValue.month <= 12
+    const maxDay = [31, isLeapYear(inputValue.year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][
+      inputValue.month - 1
+    ]
+    const isValidDay = inputValue.day >= 1 && inputValue.day <= maxDay
+
     if (isValidYear && isValidMonth && isValidDay) {
       const pastDate = new Date(inputValue.year, inputValue.month - 1, inputValue.day)
 
@@ -25,6 +27,7 @@ export default function Home() {
       }
 
       setAge(ageCalculator)
+      setInputEnabled(false)
     } else {
       setInputEnabled(true)
     }
