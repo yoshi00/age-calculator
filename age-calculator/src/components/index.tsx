@@ -1,6 +1,6 @@
 // index.tsx
-export { Input } from './input'
-export { Button } from './button'
-export { AddIcon } from './addicon'
-export { Text } from './text'
-export { Card } from './card'
+export { Input } from './Input'
+export { Button } from './Button'
+export { AddIcon } from './AddIcon'
+export { Text } from './Text'
+export { Card } from './Card'
