@@ -34,10 +34,11 @@ export default function Home() {
   }
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setInputValue({
-      ...inputValue,
-      [event.target.name]: parseInt(event.target.value),
-    })
+    const { value, name } = event.target
+    setInputValue((prevInput) => ({
+      ...prevInput,
+      [name]: value,
+    }))
   }
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     const validCharacters = '0123456789'
@@ -59,8 +60,13 @@ export default function Home() {
               onChange={handleInputChange}
               onKeyDown={handleKeyPress}
             />
-            <Text style={inputEnabled ? { color: 'red', fontSize: 9, alignItems: 'center' } : { display: 'none' }}>
-              Wrong valid date!
+            <Text
+              style={
+                inputEnabled ? { color: '#ba6666', fontSize: '0.85rem', alignItems: 'center' } : { display: 'none' }
+              }
+            >
+              Wrong valid
+              <br /> date!
             </Text>
           </div>
 
@@ -73,8 +79,13 @@ export default function Home() {
               onChange={handleInputChange}
               onKeyDown={handleKeyPress}
             />
-            <Text style={inputEnabled ? { color: 'red', fontSize: 9, alignItems: 'center' } : { display: 'none' }}>
-              Wrong valid date!
+            <Text
+              style={
+                inputEnabled ? { color: '#ba6666', fontSize: '0.85rem', alignItems: 'center' } : { display: 'none' }
+              }
+            >
+              Wrong valid
+              <br /> date!
             </Text>
           </div>
           <div>
@@ -86,8 +97,13 @@ export default function Home() {
               onChange={handleInputChange}
               onKeyDown={handleKeyPress}
             />
-            <Text style={inputEnabled ? { color: 'red', fontSize: 9, alignItems: 'center' } : { display: 'none' }}>
-              Wrong valid date!
+            <Text
+              style={
+                inputEnabled ? { color: '#ba6666', fontSize: '0.85rem', alignItems: 'center' } : { display: 'none' }
+              }
+            >
+              Wrong valid
+              <br /> date!
             </Text>
           </div>
         </section>

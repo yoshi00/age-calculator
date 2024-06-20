@@ -6,7 +6,7 @@ import './styles.css'
 interface InputProps {
   onChange: React.ChangeEventHandler<HTMLInputElement>
   onKeyDown: React.KeyboardEventHandler<HTMLInputElement>
-  value?: string
+  value?: number
   text: string
   placeholder: string
   style?: React.CSSProperties
